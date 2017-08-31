@@ -2,8 +2,6 @@ var app = angular.module('app', ['ui.router'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider){
 
-  $locationProvider.html5Mode(true);
-
   $stateProvider
 
     .state('main', {
@@ -13,5 +11,16 @@ var app = angular.module('app', ['ui.router'])
     })
 
   $urlRouterProvider.otherwise('main');
+  $locationProvider.html5Mode(true);
+
+}])
+
+.run(['$rootScope', function($rootScope){
+  
+  console.log('run');
+
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+
+  })
 
 }])
