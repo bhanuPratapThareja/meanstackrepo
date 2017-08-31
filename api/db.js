@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var dburl = 'mongodb://localhost:27017/newdb';
+var config = require('./config');
 
-mongoose.connect(dburl, {useMongoClient: true});
+mongoose.connect(config.dbURI, {useMongoClient: true});
 
 mongoose.connection.on('connected', function(){
-  console.log('Mongoose connected to ' + dburl);
+  console.log('Mongoose connected to ' + config.dbURI);
 });
 
 mongoose.connection.on('disconnected', function(){
